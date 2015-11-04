@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!, except: :index
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   def index
     @blogs = Blog.order(created_at: :desc).limit(10)
