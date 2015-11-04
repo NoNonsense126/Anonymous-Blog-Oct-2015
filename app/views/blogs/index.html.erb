@@ -1,0 +1,13 @@
+<h1>Latest Blogs</h1>
+
+<%= link_to "Create a new blog", new_blog_path %>
+
+<% @blogs.each_with_index do |blog, index| %>
+  <p>
+    <%= link_to blog do %>
+      <%= "#{index + 1}. #{blog.title}" %>
+    <% end %>
+    <br />
+    <span><%= link_to "Delete", blog, method: :delete %></span>
+  </p>
+<% end %>
